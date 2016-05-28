@@ -26,7 +26,7 @@ We can not learn coding by reading. To become better developer, we must code and
 
 Thus this book focus on real workshop approach. Each chapter represent a workshop and in each workshop, you will code and learn something new. Obviously I try my best to not load you with lot of new stuff in single chapter/workshop. We will start with simple workshop and gradually move towards more complex requirements. All the code needed during workshop is available as open source project on GitHub, which you can easily clone. Don't worry if you don't know Git or how to clone, `Appendix A - Git basics and Github` is there to help you. In the workshop, we will be actually making that code step by step. At the start of each chapter, there is an introduction section, which give details of what you should already knowing (generally learned in previous workshop) and what new will you learn.
 
-These chapters are actually some of the real workshops, I organized during PHP Reboot meet-ups. I included these workshops as chapters. We will actually start with `Chapter 1 - TDD Workshop`, which is most basic course of test driven development approach.
+These chapters are actually some of the real workshops, I organized during PHP Reboot meet-ups. I included these workshops as chapters. We will actually start with `Chapter 1 - TDD Basics`, which is most basic course of test driven development approach.
 
 Thus this book is divided into two parts; regular chapters and appendix. Regular chapters includes workshops and appendix are short course of required tools like Git, Composer, Jenkins, Travis, PHP QA Tools etc.
 
