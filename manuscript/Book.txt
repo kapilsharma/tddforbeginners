@@ -1,2 +1,7 @@
 Introduction.txt
 Chapter1.txt
+AppendixA-GitGitHub.txt
+AppendixB-Composer.txt
+AppendixC-Xampp.txt
+AppendixD-Vagrant.txt
+AppendixE-Docker.txt
