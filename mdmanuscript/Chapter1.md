@@ -417,3 +417,41 @@ OK (1 test, 1 assertion)
 
 Before we commit our files, please note, there is a new `log` folder. If you remember, in `phpunit.xml` we asked two reports in `logging` section. However we do not want to commit reports so lets put `log` in `.gitignore` and commit.
 
+### Second test
+
+If you remember `think well` section, our second test should be to confirm `add` without parameter should return 0. This condition is already matching right now as we are returning `0` (regardless of condition) but this is temporary condition. When we will write code for other conditions, add method might not return `0`. To keep us future secure, lets write a test for that. Add following method in our `CalculatorTest` class.
+
+```php
+    public function testAddWithoutParameterReturnsZero()
+    {
+        $result = $this->calculator->add();
+        $this->assertSame(0, $result, 'Empty string on add do not returns 0');
+    }
+```
+
+In this test, first line of test is pretty clear, we are just calling `add` method without any parameter and saving result in `$result` variable.
+
+In second line, which is actually a test, we used PHP Unit's `assertSame` method. I recommend to go through PHP Unit documentations to know about all `assert***` methods. In short, `assertSame` and `assertEquals` check if expected and actual result are same? Difference, assertEquals check `expected == actual` and assertSame check `expected === actual`.
+
+As prerequisite of this course, I expect you know difference between `==` and `===`. If no, you must first learn a bit more about PHP. In short, assertSame check value as well as type so ideally two tests for me. Now lets run the test. If you forgot, command is `vendor/bin/phpunit` in project root. Output of test is `OK (2 tests, 2 assertions)`, everything passing as expected. Still this test important as it will test this condition every time we run PHP Unit means keeping us future secure for this condition.
+
+### Reviewing testdox.html
+
+ Before we go ahead, lets first check generated docs. Please open `log/testdoc.html` in a browser (double click it in explorer).
+
+ Its output should be like
+
+ > ### phpreboot\tddworkshop\Calculator
+ >
+ >   - Add returns an integer
+ >   - Add without parameter returns zero
+
+ As you can see our HTML report is readable even by non-technical person. If you check closely, message is actually the name of our test function, without `test` prefix. Hope now it is clear why we selected strange names for our test function. Name should be human readable in English but at the same time, it must not be a whole sentence. While naming tests, always think a short and simple line to exactly define your test. If we `think well` about solution before starting tasks, test names will be obvious as while thinking. If you are still not able to think suitable names, don't worry, keep writing tests and keep reviewing generated HTML report. Remember the mantra `Practice makes man perfect`. With some experience, naming a test method will become obvious for you.
+
+ > Practice makes man perfect.
+ >
+ > For developers, 'Code makes developer perfect'. Code a lot. Don't miss any opportunity to code, contribute to Open source.
+
+ And remember that:
+
+ [open-source-is-open-course]
