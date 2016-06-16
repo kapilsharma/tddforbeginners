@@ -2,11 +2,11 @@
 
 ## Introduction
 
-In this workshop, we are going to make a simple command line calculator. Our calculator will have just `add` and `product` functionality. Requirements are pretty simple but main focus is on initial steps of `Test Driven Development`.
+In this workshop, we are going to make a simple command line calculator. Our calculator will have just `add` and `product` functionality. Requirements are pretty simple but the main focus is on initial steps of `Test Driven Development`.
 
 During this workshop we will do/learn following:
 
- - Create a new Git project and commit it on github.
+ - Create a new Git project and commit it on Github.
  - Initialize composer project and understand `composer.json` file.
  - Understand composer auto-loading.
  - Use composer to install PHP Unit.
@@ -15,7 +15,7 @@ During this workshop we will do/learn following:
    - Write Test - which will obviously fail.
    - Code - To make test succeed.
    - Test - To ensure we achieved our requirements.
-   - Refactor - To make code better.
+   - Refactor - To make the code better.
    - Test - To ensure refactoring did not brake anything.
    - Done - Move to next task/requirement.
 
@@ -25,11 +25,11 @@ To code, we need some tasks or requirements. Project section describes what are 
 
 In this chapter, **we are going to make a simple command line calculator.**
 
-However, as in real projects, we will make it in parts. As in real projects, we have some initial set of requirements, we achieve them and make project live. Once project is live, we ger next set of requirements and start development for next version of application. Here, we will divide our application is tasks. Please assume every task is an application, supposed to go live after development. This means, every task must be complete in itself.
+However, as in real projects, we will make it in parts. As in real projects, we have some initial set of requirements, we achieve them and make project live. Once the project is live, we get next set of requirements and start development for next version of the application. Here, we will divide our application is tasks. Please assume every task is an application, supposed to go live after development. This means every task must be complete in itself.
 
-Once we complete a task, we need to start development of next task, which represent new feature of our application. This means, doing new task should not break previous task and this is where, `test driven development` comes into picture. We will write test of previous tasks, say task 1 and 2, and while working on task 3, PHP Unit will ensure Task 1 and 2 are still working.
+Once we complete a task, we need to start development of next task, which represents a new feature of our application. This means, doing new task should not break the previous task and this is where `test driven development` comes into the picture. We will write test of previous tasks, say task 1 and 2, and while working on task 3, PHP Unit will ensure Task 1 and 2 are still working.
 
-This workshop is divided into 8 tasks. I'm not going to tell about next task. Obviously task represent future requirements and no one know what future will be? So we will take one task at a time.
+This workshop is divided into 8 tasks. I'm not going to tell about next task. Obviously, task represent future requirements and no one know what future will be? So we will take one task at a time.
 
 ## Task 1
 
@@ -43,50 +43,50 @@ php calculator.php sum 2,3
 
 and its output must 0, 1, and 5 respectively.
 
-> Please do not consider the scenarios not mentioned in the task statements. Lets not complicate the situations. We will just do what task ask us to do.
+> Please do not consider the scenarios not mentioned in the task statements. Do not complicate the situations. We will just do what task ask us to do.
 
 ## Task 1 solution
 
-Lets code to achieve task 1 requirements. Before we jump to the solution, we have following prerequisite for this task.
+Let's code to achieve task 1 requirements. Before we jump to the solution, we have the following prerequisite for this task.
 
  - `PHP 5.5+`: We assume, PHP 5.5 or higher is already installed. If not, you may check `Appendix C: XAMPP` to setup quick PHP development environment. Although a bit time taking but `Appendix D: Vagrant` or `Appendix E: Docker` is recommended way of setting local PHP development environment.
- - `Git and GitHub account`: We need Git installed locally and you must have github account (free). If you are not aware about git and github, `Appendix A: Git and Github basics` will help you.
- - `Composer`: We will also need composer. If you are not aware of composer, `Appendix B: Composer` will help you.
+ - `Git and GitHub account`: We need Git installed locally and you must have HitHub account (free). If you are not aware of git and GitHub, `Appendix A: Git and Github basics` will help you.
+ - `Composer`: We will also need the composer. If you are not aware of the composer, `Appendix B: Composer` will help you.
 
 ### Think well
 
-I remember a story from a old Hindi movie (forgot movie name). There was a factory, where one machine was not working. Factory owner was tensed as if machine do not work for single day, he will have loss of several thousand Rupees. Fortunately an Engineer was visiting factory and was asked to check if he can fix the machine. He asked a hammer and hit machine on one point, and machine started. Owner was happy and asked him service charges.  Engineer asked Rs. 1000, which was prety high at that time. Owner was shocked, Rs. 1000 just for one hammers hit? Engineer replied, "No, just Rs. 1 for hammer hit; Rs. 999 for where should I hit."
+I remember a story from an old Hindi movie (forgot movie name). There was a factory, where one machine was not working. Factory owner was tensed as if machine do not work for a single day, he will have loss of several thousand Rupees. Fortunately, an Engineer was visiting the factory and was asked to check if he can fix the machine. He asked a hammer and hit machine on one point, and the machine started. The owner was happy and asked him service charges, engineer asked Rs. 1000, which was pretty high at that time. The owner was shocked, Rs. 1000 just for one hammers hit? Engineer replied, "No, just Rs. 1 for hammer hit; Rs. 999 for where should I hit."
 
-Similarly, if a developer works 8 hours a day, it generally mean he think 6-7 hours and type 1-2 hours. This is obvious, we are developers, not typist. We do not get payment for typing, but what should we type and this needs time to think.
+Similarly, if a developer works 8 hours a day, it generally means he think 6-7 hours and types 1-2 hours. This is obvious, we are developers, not the typist. We do not get payment for typing, but what should we type and this needs time to think.
 
-Before we start writing first line of code, we must think what we need to do? Do we know that? Well yes, task 1 requirements are pretty clear but wait, may be no, we do not know how will we achieve that. So lets list down few requirements.
+Before we start writing first line of the code, we must think what we need to do? Do we know that? Well yes, task 1 requirements are pretty clear but wait, maybe not, we do not know how will we achieve that. So let's list down few requirements.
 
  - To run command `php calculator.php add`, we must have `calculator.php` at the project root.
-   - However this is also going to be our front controller.
+   - However, this is also going to be our front controller.
    - It is not a good idea to write our business logic in `calculator.php`.
    - Also `calculator.php` needs to handle command line arguments means it will be functional code, not a class.
-   - This all means, we need separate `Calculator.php` having `Calculator` class.
+   - This all means we need separate `Calculator.php` having `Calculator` class.
  - Our `Calculator` class will contain main business logic.
-   - We writes PHP Unit tests for business logic, means Calculator class must have tests.
- - In command `php calculator.php add`, we have a command line argument `add`, which represent operation. Thus our `Calculator` class should have `add` method to handle `add` operation.
+   - We write PHP Unit tests for business logic, means Calculator class must be tested.
+ - In command `php calculator.php add`, we have a command line argument `add`, which represent operation. Thus, our `Calculator` class should have `add` method to handle `add` operation.
  - Our `add` method will have business logic to add numbers so it must be tested. Which tests?
    - Add should return an integer.
    - Add without parameter should return `0`.
-   - Add with single parameter should return same number.
+   - Add with single parameter should return the same number.
    - Add with two parameters should return their sum.
    - There are few failure conditions as well
-     - Add with non string parameters should fail (throw exception).
-     - Add with non-number within parameter should fail (throw exception).
+     - Add with non-string parameters should fail (throw exception).
+     - Add with non-number within parameter should fail (throw an exception).
 
 With above few bullet points, we have a rough road-map of we need to do. Remaining chapter is all about how we do it.
 
 ### Development folder
 
-Although not part of task, I want to recommend how to organize your projects. There must be a single folder say `dev` which must contains all of your projects. Within `dev` folder, you may keep all of your project. If you work on too many projects, may create further sub-folder to arrange different type of projects.
+Although not part of the task, I want to recommend how to organize your projects. There must be a single folder say `dev` which must contains all of your projects. Within `dev` folder, you may keep all of your projects. If you work on too many projects, may create further sub-folder to arrange different type of projects.
 
 `dev` folder may be kept on location like `/home/<yourname>/dev` on Linux/Mac or `D:\dev` on windows.
 
-> This also means you should never keep your projects in `/var/www` folder. That is a bad practice. Create project in dev folder and use virtual host if needed. I specially mentioned this as I saw many developer putting all of their projects in `/var/www` folder.
+> This also means you should never keep your projects in `/var/www` folder. That is a bad practice. Create a project in dev folder and use virtual host if needed. I specially mentioned this as I saw many developers putting all of their projects in `/var/www` folder.
 
 ### Creating project
 
@@ -417,3 +417,41 @@ OK (1 test, 1 assertion)
 
 Before we commit our files, please note, there is a new `log` folder. If you remember, in `phpunit.xml` we asked two reports in `logging` section. However we do not want to commit reports so lets put `log` in `.gitignore` and commit.
 
+### Second test
+
+If you remember `think well` section, our second test should be to confirm `add` without parameter should return 0. This condition is already matching right now as we are returning `0` (regardless of condition) but this is temporary condition. When we will write code for other conditions, add method might not return `0`. To keep us future secure, lets write a test for that. Add following method in our `CalculatorTest` class.
+
+```php
+    public function testAddWithoutParameterReturnsZero()
+    {
+        $result = $this->calculator->add();
+        $this->assertSame(0, $result, 'Empty string on add do not returns 0');
+    }
+```
+
+In this test, first line of test is pretty clear, we are just calling `add` method without any parameter and saving result in `$result` variable.
+
+In second line, which is actually a test, we used PHP Unit's `assertSame` method. I recommend to go through PHP Unit documentations to know about all `assert***` methods. In short, `assertSame` and `assertEquals` check if expected and actual result are same? Difference, assertEquals check `expected == actual` and assertSame check `expected === actual`.
+
+As prerequisite of this course, I expect you know difference between `==` and `===`. If no, you must first learn a bit more about PHP. In short, assertSame check value as well as type so ideally two tests for me. Now lets run the test. If you forgot, command is `vendor/bin/phpunit` in project root. Output of test is `OK (2 tests, 2 assertions)`, everything passing as expected. Still this test important as it will test this condition every time we run PHP Unit means keeping us future secure for this condition.
+
+### Reviewing testdox.html
+
+ Before we go ahead, lets first check generated docs. Please open `log/testdoc.html` in a browser (double click it in explorer).
+
+ Its output should be like
+
+ > ### phpreboot\tddworkshop\Calculator
+ >
+ >   - Add returns an integer
+ >   - Add without parameter returns zero
+
+ As you can see our HTML report is readable even by non-technical person. If you check closely, message is actually the name of our test function, without `test` prefix. Hope now it is clear why we selected strange names for our test function. Name should be human readable in English but at the same time, it must not be a whole sentence. While naming tests, always think a short and simple line to exactly define your test. If we `think well` about solution before starting tasks, test names will be obvious as while thinking. If you are still not able to think suitable names, don't worry, keep writing tests and keep reviewing generated HTML report. Remember the mantra `Practice makes man perfect`. With some experience, naming a test method will become obvious for you.
+
+ > Practice makes man perfect.
+ >
+ > For developers, 'Code makes developer perfect'. Code a lot. Don't miss any opportunity to code, contribute to Open source.
+
+ And remember that:
+
+ [open-source-is-open-course]
